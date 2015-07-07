@@ -133,5 +133,15 @@ namespace Orchard.Blogs {
 
             return 6;
         }
+
+        public int UpdateFrom6()
+        {
+            ContentDefinitionManager.AlterPartDefinition("BlogPostPart", part => part
+                .WithField("ImageField", f => f
+                    .OfType("MediaLibraryPickerField").WithDisplayName("Featured Image Field")
+                    .WithSetting("MediaLibraryPickerField.Hint", "Images everywhere!").WithSetting("MediaLibraryPickerFieldSettings.Required", "False")
+                    .WithSetting("MediaLibraryPickerFieldSettings.Multiple", "False")));
+            return 7;
+        }
     }
 }
